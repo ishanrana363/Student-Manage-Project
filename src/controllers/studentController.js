@@ -63,9 +63,46 @@ exports.profileDetails = async (req,res)=>{
             data : result
         })
     }catch (e){
-
+        res.status(500).json({
+            status  : "Fail",
+            error : e.toString()
+        })
     }
 }
+
+// user profile update
+
+exports.profileUpdate = async (req,res) =>{
+    try {
+        let email = req.headers.email
+        let id = req.params.id
+        let query = {
+            _id : id,
+            email : email
+        }
+        let result = await studentsModel.updateOne(query,{
+            firstName :req.body.firstName,
+            lastName : req.body.lastName,
+            mobile : req.body.mobile,
+            password : req.body.password,
+            roll :  req.body.roll,
+            class : req.body.class
+        });
+        res.status(200).json({
+            status: "success",
+            data : result
+        })
+    }catch (e){
+        res.status(500).json({
+            status  : "Fail",
+            error : e.toString()
+        })
+    }
+}
+
+ // user profile delete
+
+
 
 
 

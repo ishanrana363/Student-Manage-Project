@@ -8,7 +8,8 @@ router.post("/register",studentController.create);
 router.post("/login",studentController.login);
 // profile details api
 router.get("/profile-details",authUserVerifyMiddleware,studentController.profileDetails)
-
+// profile update api
+router.post("/profile-update/:id",authUserVerifyMiddleware,studentController.profileUpdate)
 
 
 
