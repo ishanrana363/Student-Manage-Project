@@ -102,7 +102,26 @@ exports.profileUpdate = async (req,res) =>{
 
  // user profile delete
 
-
+exports.profileDelete = async (req,res) =>{
+    try {
+        let id = req.params.id
+        let email  = req.headers["email"]
+        let query = {
+            _id : id,
+            email :  email
+        }
+        let result = await studentsModel.deleteOne(query);
+        res.status(200).json({
+            status: "success",
+            data : result
+        })
+    }catch (e){
+        res.status(500).json({
+            status  : "Fail",
+            error : e.toString()
+        })
+    }
+}
 
 
 

@@ -7,9 +7,11 @@ router.post("/register",studentController.create);
 // login routes
 router.post("/login",studentController.login);
 // profile details api
-router.get("/profile-details",authUserVerifyMiddleware,studentController.profileDetails)
+router.get("/profile-details",authUserVerifyMiddleware,studentController.profileDetails);
 // profile update api
-router.post("/profile-update/:id",authUserVerifyMiddleware,studentController.profileUpdate)
+router.post("/profile-update/:id",authUserVerifyMiddleware,studentController.profileUpdate);
+// profile delete routes
+router.delete("/profile-delete/:id",authUserVerifyMiddleware,studentController.profileDelete)
 
 
 
