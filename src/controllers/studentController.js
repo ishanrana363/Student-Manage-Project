@@ -47,3 +47,90 @@ exports.login = async (req,res)=>{
         })
     }
 }
+
+// profile details
+
+exports.profileDetails = async (req,res)=>{
+    try {
+        let email = req.headers["email"];
+        console.log(email)
+        let reqBody = req.body;
+        let result = await studentsModel.find({
+            email:email,
+        })
+        res.status(200).json({
+            status : "success",
+            data : result
+        })
+    }catch (e){
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
