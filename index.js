@@ -1,7 +1,7 @@
 // Basick Lib Import
 const express = require("express")
 const app = express()
-
+const router = require("./src/routes/api")
 
 // Security Middleware Import
 const rateLimit = require("express-rate-limit");
@@ -14,6 +14,7 @@ const morgan = require("morgan");
 
 // Database Lib Import
 const mongoose = require("mongoose")
+
 
 // Security Middleware Implement
 app.use(cors())
@@ -31,6 +32,10 @@ app.use(express.json())
 
 const limiter = rateLimit({windowMs:15*60*1000,max:3000})
 app.use(limiter)
+
+// api implement
+
+app.use("/api/v1/",router)
 
 
 // Undefined Route Implement

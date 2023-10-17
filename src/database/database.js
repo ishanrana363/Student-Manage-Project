@@ -1,7 +1,6 @@
 const mongoose = require("mongoose")
 require("dotenv").config()
 const dbPort = process.env.DB_PORT
-console.log(dbPort)
 const connectDb = ()=>{
     try {
         mongoose.connect(dbPort)
