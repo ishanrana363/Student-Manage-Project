@@ -22,10 +22,12 @@ router.post("/reset-password",studentController.emailResetPassword)
 // work controller routes
 
 // create
-router.post("/create",authUserVerifyMiddleware,workController.create)
-router.get("/find-by-status/:status",authUserVerifyMiddleware,workController.findByStatus)
-router.post("/status-update/:id",authUserVerifyMiddleware,workController.statusUpdate)
-
+router.post("/create",authUserVerifyMiddleware,workController.create);
+router.get("/find-by-status/:status",authUserVerifyMiddleware,workController.findByStatus);
+router.post("/status-update/:id",authUserVerifyMiddleware,workController.statusUpdate);
+router.post("/update/:id",authUserVerifyMiddleware,workController.update);
+router.delete("/delete/:id",authUserVerifyMiddleware,workController.delete);
+router.get("/status-count",authUserVerifyMiddleware,workController.statusCount)
 
 
 module.exports = router
