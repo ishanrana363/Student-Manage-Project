@@ -116,7 +116,8 @@ exports.delete = async (req,res)=>{
 exports.statusCount = async (req,res)=>{
     try {
         let email = req.headers['email']
-
+        let result = await worksModel.aggregate([{$match:{email:email}},
+            {$group : {_id : "$status" , sum : {$count : {}}}}]);
         res.status(200).json({
             status : "success",
             data : result
