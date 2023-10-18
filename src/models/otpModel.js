@@ -6,8 +6,11 @@ const dataSchema = mongoose.Schema({
     otp : {
         type : String
     },
-    status : Number,
-    default : 0
+    status : {
+        type : Number,
+        default : 0
+    }
+
 },{versionKey:false,timestamps:true})
 
 
